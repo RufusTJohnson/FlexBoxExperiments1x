@@ -403,22 +403,23 @@ class rtj_Code_edit
    // ********************************************************************* 
    constructor() 
    {    
-		this.title            =    "";
-		this.description      =    "";
-      this.example_index    =    rtj_Code_edit.get_example_index();
+		this.title            	=   "";
+		this.description      	=   "";
+		this.example_index    	=   rtj_Code_edit.get_example_index();
+		this.cssCode			=	"";
       
 		this.create_container_tags();
-      this.reset            =    document.getElementById('rtj_reset_'+this.example_index);
-      this.reset.addEventListener('click', function () {
-         this.textareaHTML.value   = this.htmlCode;
-         this.textareaCSS.value    = this.cssCode;
-         this.fillCode();
-      }.bind(this));
+		this.reset            =    document.getElementById('rtj_reset_'+this.example_index);
+		this.reset.addEventListener('click', function () {
+			this.textareaHTML.value   = this.htmlCode;
+			this.textareaCSS.value    = this.cssCode;
+			this.fillCode();
+		}.bind(this));
       
 		
 		this.textareaHTML.addEventListener('input', (this.fillCode).bind(this));
-      this.textareaCSS.addEventListener('input', (this.fillCode).bind(this));
-      window.addEventListener('load', (this.fillCode).bind(this));
+		this.textareaCSS.addEventListener('input', (this.fillCode).bind(this));
+		window.addEventListener('load', (this.fillCode).bind(this));
    }
   
    // ********************************************************************* 
@@ -550,7 +551,7 @@ class rtj_Code_edit
    // ********************************************************************* 
    add_editable_css(content) {
 		// this.cssCode contains the initial css code in this example
-		this.cssCode = content;
+		this.cssCode += content;
       var css_edit_area	= document.querySelector("#rtj_css_edit_"+this.example_index);
 		css_edit_area.insertAdjacentHTML('beforeend',content);
 		css_edit_area.style.height = 'auto';

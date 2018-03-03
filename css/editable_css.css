@@ -8,6 +8,8 @@ body {
 	padding: 0;
 }
 
+/* This is where the user edits CSS and HTML for the examples
+*/
 textarea {
 	font-family: monospace;
 	display: block;
